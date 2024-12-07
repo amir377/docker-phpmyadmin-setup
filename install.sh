@@ -55,7 +55,7 @@ if [ -f "docker-compose.example.yaml" ]; then
         -e "s/\${NETWORK_NAME}/$network_name/g" \
         -e "s/\${PMA_PORT}/$pma_port/g" \
         -e "s/\${ALLOW_HOST}/$allow_host/g" \
-        -e "s/\${PMA_HOST}/$mysql_host/g" \
+        -e "s/\${MYSQL_HOST}/$mysql_host/g" \
         -e "s/\${MYSQL_PORT}/$mysql_port/g" \
         docker-compose.example.yaml > docker-compose.yaml
     echo "docker-compose.yaml file created successfully."

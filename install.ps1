@@ -71,7 +71,7 @@ if (Test-Path "docker-compose.example.yaml") {
             -replace "\$\{NETWORK_NAME\}", $networkName `
             -replace "\$\{PMA_PORT\}", $pmaPort `
             -replace "\$\{ALLOW_HOST\}", $allowHost `
-            -replace "\$\{PMA_HOST\}", $mysqlHost `
+            -replace "\$\{MYSQL_HOST\}", $mysqlHost `
             -replace "\$\{MYSQL_PORT\}", $mysqlPort
     }
     $composeFilePath = "docker-compose.yaml"
