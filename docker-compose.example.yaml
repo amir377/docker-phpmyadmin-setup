@@ -3,8 +3,7 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: ${CONTAINER_NAME}
     environment:
-      PMA_HOST: ${MYSQL_HOST}
-      MYSQL_PORT: ${MYSQL_PORT}
+      PMA_ARBITRARY: 1
     ports:
       - "${ALLOW_HOST}:${PMA_PORT}:80"
     networks:
