@@ -11,7 +11,7 @@ prompt_user() {
 # Prompt user for phpMyAdmin setup details
 container_name=$(prompt_user "Enter the phpMyAdmin container name" "phpmyadmin")
 network_name=$(prompt_user "Enter the network name" "general")
-pma_port=$(prompt_user "Enter the phpMyAdmin port" "8080")
+pma_port=$(prompt_user "Enter the phpMyAdmin port" "80")
 pma_host=$(prompt_user "Enter the MySQL service name" "db")
 allow_host=$(prompt_user "Enter the allowed host" "0.0.0.0")
 

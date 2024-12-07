@@ -91,7 +91,7 @@ Holds configuration values for the phpMyAdmin container. Example:
 # PMA container settings
 CONTAINER_NAME=phpmyadmin
 PMA_HOST=db
-PMA_PORT=8080
+PMA_PORT=80
 NETWORK_NAME=general
 ALLOW_HOST=0.0.0.0
 ```

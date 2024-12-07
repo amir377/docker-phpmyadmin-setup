@@ -5,7 +5,7 @@ services:
     environment:
       PMA_HOST: ${PMA_HOST}
     ports:
-      - "${ALLOW_HOST}:${PMA_PORT}:8080"
+      - "${ALLOW_HOST}:${PMA_PORT}:80"
     networks:
       - ${NETWORK_NAME}
 
