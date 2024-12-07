@@ -90,7 +90,6 @@ Holds configuration values for the phpMyAdmin container. Example:
 ```env
 # PMA container settings
 CONTAINER_NAME=phpmyadmin
-PMA_HOST=db
 PMA_PORT=80
 NETWORK_NAME=general
 ALLOW_HOST=0.0.0.0
@@ -105,8 +104,6 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: ${CONTAINER_NAME}
-    environment:
-      PMA_HOST: ${PMA_HOST}
     ports:
       - "${ALLOW_HOST}:${PMA_PORT}:80"
     networks:

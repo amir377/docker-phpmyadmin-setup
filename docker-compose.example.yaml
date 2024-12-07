@@ -2,8 +2,6 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: ${CONTAINER_NAME}
-    environment:
-      PMA_HOST: ${PMA_HOST}
     ports:
       - "${ALLOW_HOST}:${PMA_PORT}:80"
     networks:

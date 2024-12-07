@@ -19,7 +19,6 @@ function PromptUser {
 $containerName = PromptUser -PromptText "Enter the phpMyAdmin container name" -DefaultValue "phpmyadmin"
 $networkName = PromptUser -PromptText "Enter the network name" -DefaultValue "general"
 $pmaPort = PromptUser -PromptText "Enter the phpMyAdmin port" -DefaultValue "80"
-$pmaHost = PromptUser -PromptText "Enter the MySQL service name" -DefaultValue "db"
 $allowHost = PromptUser -PromptText "Enter the allowed host (Default: 0.0.0.0)" -DefaultValue "0.0.0.0"
 
 # Generate the .env file
@@ -27,7 +26,6 @@ Write-Host "Creating .env file for phpMyAdmin setup..." -ForegroundColor Green
 $envContent = @"
 # PMA container settings
 CONTAINER_NAME=$containerName
-PMA_HOST=$pmaHost
 PMA_PORT=$pmaPort
 NETWORK_NAME=$networkName
 ALLOW_HOST=$allowHost
@@ -69,7 +67,6 @@ if (Test-Path "docker-compose.example.yaml") {
             -replace "\$\{NETWORK_NAME\}", $networkName `
             -replace "\$\{PMA_PORT\}", $pmaPort `
             -replace "\$\{ALLOW_HOST\}", $allowHost `
-            -replace "\$\{PMA_HOST\}", $pmaHost
     }
     $composeFilePath = "docker-compose.yaml"
     $exampleContent | Set-Content -Path $composeFilePath
