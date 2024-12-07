@@ -12,6 +12,8 @@ prompt_user() {
 container_name=$(prompt_user "Enter the phpMyAdmin container name" "phpmyadmin")
 network_name=$(prompt_user "Enter the network name" "general")
 pma_port=$(prompt_user "Enter the phpMyAdmin port" "80")
+mysql_host=$(prompt_user "Enter the MySQL service host" "127.0.0.1")
+mysql_port=$(prompt_user "Enter the MySQL service port" "3306")
 allow_host=$(prompt_user "Enter the allowed host" "0.0.0.0")
 
 # Generate the .env file
@@ -19,6 +21,8 @@ echo "Creating .env file for phpMyAdmin setup..."
 cat > .env <<EOL
 # PMA container settings
 CONTAINER_NAME=$container_name
+MYSQL_HOST=$mysql_host
+MYSQL_PORT=$mysql_port
 PMA_PORT=$pma_port
 NETWORK_NAME=$network_name
 ALLOW_HOST=$allow_host
@@ -51,6 +55,8 @@ if [ -f "docker-compose.example.yaml" ]; then
         -e "s/\${NETWORK_NAME}/$network_name/g" \
         -e "s/\${PMA_PORT}/$pma_port/g" \
         -e "s/\${ALLOW_HOST}/$allow_host/g" \
+        -e "s/\${PMA_HOST}/$mysql_host/g" \
+        -e "s/\${MYSQL_PORT}/$mysql_port/g" \
         docker-compose.example.yaml > docker-compose.yaml
     echo "docker-compose.yaml file created successfully."
 else

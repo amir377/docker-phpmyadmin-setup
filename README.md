@@ -104,6 +104,9 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: ${CONTAINER_NAME}
+    environment:
+      PMA_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
     ports:
       - "${ALLOW_HOST}:${PMA_PORT}:80"
     networks:
