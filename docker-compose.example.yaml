@@ -1,0 +1,14 @@
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${CONTAINER_NAME}
+    environment:
+      PMA_HOST: ${PMA_HOST}
+    ports:
+      - "${ALLOW_HOST}:${PMA_PORT}:8080"
+    networks:
+      - ${NETWORK_NAME}
+
+networks:
+  ${NETWORK_NAME}:
+    external: true
