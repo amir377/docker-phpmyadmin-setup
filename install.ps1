@@ -18,7 +18,7 @@ function PromptUser {
 # Prompt user for each required parameter
 $containerName = PromptUser -PromptText "Enter the phpMyAdmin container name" -DefaultValue "phpmyadmin"
 $networkName = PromptUser -PromptText "Enter the network name" -DefaultValue "general"
-$pmaPort = PromptUser -PromptText "Enter the phpMyAdmin port" -DefaultValue "80"
+$pmaPort = PromptUser -PromptText "Enter the phpMyAdmin port" -DefaultValue "8080"
 $allowHost = PromptUser -PromptText "Enter the allowed host (Default: 0.0.0.0)" -DefaultValue "0.0.0.0"
 
 # Generate the .env file
